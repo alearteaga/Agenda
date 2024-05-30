@@ -16,39 +16,63 @@ public class AgendaTelefonica {
         frame.setSize(800, 600);
 
         JPanel panel = new JPanel();
-        panel.setLayout(new GridLayout(5, 2));
+        panel.setLayout(new GridBagLayout());
+        GridBagConstraints gbc = new GridBagConstraints();
+        gbc.fill = GridBagConstraints.HORIZONTAL;
+        gbc.insets = new Insets(5, 5, 5, 5); // Padding
 
-        panel.add(new JLabel("Nombre:"));
-        txtNombre = new JTextField();
-        panel.add(txtNombre);
+        gbc.gridx = 0;
+        gbc.gridy = 0;
+        panel.add(new JLabel("Nombre:"), gbc);
+        gbc.gridx = 1;
+        txtNombre = new JTextField(20);
+        panel.add(txtNombre, gbc);
 
-        panel.add(new JLabel("Apellidos:"));
-        txtApellidos = new JTextField();
-        panel.add(txtApellidos);
+        gbc.gridx = 0;
+        gbc.gridy = 1;
+        panel.add(new JLabel("Apellidos:"), gbc);
+        gbc.gridx = 1;
+        txtApellidos = new JTextField(20);
+        panel.add(txtApellidos, gbc);
 
-        panel.add(new JLabel("Teléfono:"));
-        txtTelefono = new JTextField();
-        panel.add(txtTelefono);
+        gbc.gridx = 0;
+        gbc.gridy = 2;
+        panel.add(new JLabel("Teléfono:"), gbc);
+        gbc.gridx = 1;
+        txtTelefono = new JTextField(20);
+        panel.add(txtTelefono, gbc);
 
-        panel.add(new JLabel("Dirección:"));
-        txtDireccion = new JTextField();
-        panel.add(txtDireccion);
+        gbc.gridx = 0;
+        gbc.gridy = 3;
+        panel.add(new JLabel("Dirección:"), gbc);
+        gbc.gridx = 1;
+        txtDireccion = new JTextField(20);
+        panel.add(txtDireccion, gbc);
+
+        gbc.gridx = 0;
+        gbc.gridy = 4;
+        gbc.gridwidth = 2;
+
+        JPanel buttonPanel = new JPanel();
+        buttonPanel.setLayout(new FlowLayout());
 
         JButton btnAgregar = new JButton("Agregar");
         btnAgregar.addActionListener(e -> AgregarContacto.agregarContacto(getConnection(), txtNombre, txtApellidos, txtTelefono, txtDireccion, modelo));
-        panel.add(btnAgregar);
+        buttonPanel.add(btnAgregar);
 
         JButton btnModificar = new JButton("Modificar");
         btnModificar.addActionListener(e -> ModificarContacto.modificarContacto(getConnection(), txtNombre, txtApellidos, txtTelefono, txtDireccion, tabla, modelo));
-        panel.add(btnModificar);
+        buttonPanel.add(btnModificar);
 
         JButton btnEliminar = new JButton("Eliminar");
         btnEliminar.addActionListener(e -> EliminarContacto.eliminarContacto(getConnection(), tabla, modelo));
-        panel.add(btnEliminar);
+        buttonPanel.add(btnEliminar);
 
         JButton btnVer = new JButton("Ver");
         btnVer.addActionListener(e -> VerContacto.verContacto(txtNombre, txtApellidos, txtTelefono, txtDireccion, tabla));
-        panel.add(btnVer);
+        buttonPanel.add(btnVer);
+
+        panel.add(buttonPanel, gbc);
 
         frame.add(panel, BorderLayout.NORTH);
 
