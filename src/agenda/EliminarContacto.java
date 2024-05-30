@@ -18,7 +18,6 @@ public class EliminarContacto {
             ps.executeUpdate();
             modelo.removeRow(selectedRow);
         } catch (SQLException e) {
-            e.printStackTrace();
         }
     }
 }

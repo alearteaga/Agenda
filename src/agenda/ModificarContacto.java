@@ -25,7 +25,6 @@ public class ModificarContacto {
             modelo.setValueAt(txtTelefono.getText(), selectedRow, 3);
             modelo.setValueAt(txtDireccion.getText(), selectedRow, 4);
         } catch (SQLException e) {
-            e.printStackTrace();
         }
     }
 }

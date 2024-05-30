@@ -63,9 +63,8 @@ public class AgendaTelefonica {
 
     private Connection getConnection() {
         try {
-            return DriverManager.getConnection("jdbc:mysql://localhost:3306/Agenda", "root", "tu_password");
+            return DriverManager.getConnection("jdbc:mysql://localhost:3306/Agenda", "root", "My7Pass@Word_9_8A_zE");
         } catch (SQLException e) {
-            e.printStackTrace();
             return null;
         }
     }

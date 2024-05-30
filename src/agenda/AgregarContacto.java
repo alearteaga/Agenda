@@ -19,7 +19,6 @@ public class AgregarContacto {
                 modelo.addRow(new Object[]{rs.getInt(1), txtNombre.getText(), txtApellidos.getText(), txtTelefono.getText(), txtDireccion.getText()});
             }
         } catch (SQLException e) {
-            e.printStackTrace();
         }
     }
 }

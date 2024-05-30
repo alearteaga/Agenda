@@ -18,7 +18,6 @@ public class CargarContactos {
                 });
             }
         } catch (SQLException e) {
-            e.printStackTrace();
         }
     }
 }
